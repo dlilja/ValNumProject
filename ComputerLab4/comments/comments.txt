@@ -1,0 +1,9 @@
+The solution to exercise 1 uses the Krawczyk method with automatic
+differentiation to find all the zeros.
+
+The solution to exercise 3 uses the fact that a normal distribution can be
+interpreted as the function erf(x) multiplied by appropriate constants. The
+given parameters a and b thus correspond to values of x for which the corrected
+erf(x) equals 0.95 and 0.99 respectively. Subtracting these values the problem
+becomes one of finding zeros of the created function and the values a and b can
+thus be found by using the Krawczyk method from before.

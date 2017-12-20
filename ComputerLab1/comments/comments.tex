@@ -1,0 +1,205 @@
+\documentclass[a4paper, 11 pt]{amsart}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{aliascnt}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{euscript}
+\usepackage{tikz,tkz-euclide,tikz-cd}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usetkzobj{all}
+
+%Proper open/closed sub/supset-notation
+\newcommand{\osub}{\overset{\scriptscriptstyle{\mathrm{open}}}{\subset}}
+\newcommand{\csub}{\overset{\scriptscriptstyle{\mathrm{closed}}}{\subset}}
+\newcommand{\osup}{\overset{\scriptscriptstyle{\mathrm{open}}}{\supset}}
+\newcommand{\csup}{\overset{\scriptscriptstyle{\mathrm{closed}}}{\supset}}
+\newcommand{\cpsub}{\overset{\scriptscriptstyle{\mathrm{compact}}}{\subset}}
+\newcommand{\cpsup}{\overset{\scriptscriptstyle{\mathrm{compact}}}{\supset}}
+
+%Vector styles -begin-
+\renewcommand{\v}[1]{\boldsymbol{#1}}
+\newcommand{\vf}[1]{\boldsymbol{\bar{#1}}}
+\newcommand{\ve}[1]{\hat{\boldsymbol{#1}}}
+\newcommand{\vb}[1]{\underline{\boldsymbol{#1}}}
+%Vector styles -end-
+
+%Custom made symbols (proper ones -begin-
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.65ex \lineskiplimit0pt
+			\hbox{$\raisebox{-0.200ex}{\scriptsize.}$}\hbox{\scriptsize.}}}
+	=} %Proper :=
+\newcommand*{\eqdef}{=\mathrel{\vcenter{\baselineskip0.45ex \lineskiplimit0pt
+			\hbox{$\raisebox{0.10ex}{\scriptsize.}$}\hbox{\scriptsize.}}}
+} %Proper =:
+\newcommand{\co}{\colon\thinspace} %Proper colon
+\newcommand{\st}{\vert\thinspace} %Proper "such that"
+\newcommand{\sca}{\raisebox{.3ex}{\tiny$\ \bullet\ $}} %Proper scalar product
+
+%Custom made symbols (proper ones) -end-
+
+%Misc symbols -begin-
+\renewcommand{\d}{\partial}
+\newcommand{\del}{\nabla}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\f}{\varphi}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\RP}{\mathbb{R}\mathrm{P}}
+%Misc symbols -end-
+
+%Custom defined math operators -begin-
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\lk}{lk}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\codim}{codim}
+%Custom defined math operators -end-
+
+%Parenthesis and arrows -begin-
+\newcommand{\ekviv}{\ \Leftrightarrow \ }
+\newcommand{\imp}{\ \Rightarrow \ }
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\parenb}[1]{\left[ #1 \right]}
+\newcommand{\parenm}[1]{\left\{ #1 \right\}}
+\newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\absv}[1]{\left\vert #1 \right\vert}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\hak}[1]{\left \langle #1 \right \rangle}
+\newcommand{\slfrac}[2]{\left. #1 \middle / #2 \right .}
+%Parenthesis and arrows -end-
+
+\newcommand{\rad}[2]{#1_{#2\raisebox{.1ex}{\tiny$ \bullet$}}} %Row of a matrix notation
+\newcommand{\kol}[2]{#1_{\raisebox{.1ex}{\tiny$ \bullet$} #2}} %Column of a matrix notation
+
+\newtheorem{theorem}{Theorem}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\providecommand{\lemmaautorefname}{Lemma}
+
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\providecommand{\propositionautorefname}{Proposition}
+
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\providecommand{\corollaryautorefname}{Corollary}
+
+\theoremstyle{definition}
+
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\providecommand{\definitionautorefname}{Definition}
+
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\providecommand{\exampleautorefname}{Example}
+
+\newaliascnt{exercise}{theorem}
+\newtheorem{exercise}[exercise]{Exercise}
+\aliascntresetthe{exercise}
+\providecommand{\exerciseautorefname}{Exercise}
+
+\theoremstyle{remark}
+
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+\providecommand{\remarkautorefname}{Remark}
+
+\numberwithin{equation}{section}
+
+\makeindex
+
+\pagestyle{fancy}
+\lhead{Dan Lilja}
+\rhead{Validated Numerics \\
+	Computer lab 1} % course
+
+\begin{document}
+
+\thispagestyle{fancy}
+
+\hfill
+
+\section*{Further comments}
+
+\subsection*{Exercise 5a}
+
+Using monotonicity of the integrand allows us to find rigorous bounds by simply
+computing lower and upper Riemann sums.
+
+Since we haven't yet implemented rigorous versions of the standard functions I
+use the ones in \texttt{cmath} for now.
+\subsection*{Exercise 5b}
+
+In solving this exercise I perform two changes of variables. The first change 
+of variables is $ y=x^{2} $, transforming the integral as
+
+\begin{align*}
+	\int_{1}^{\infty}\sin(x^{2})x^{-3}dx 
+	& = \dfrac{1}{2}\int_{1}^{\infty}\sin(y)y^{-2}dy \, .
+\end{align*}
+From here I divide the integral into three parts that I call the head, the main 
+part and the tail. These are, respectively,
+\begin{align*}
+	\dfrac{1}{2} & \int_{1}^{\frac{\pi}{2}}\sin(y)y^{-2}dy \, , \\
+	\dfrac{1}{2} & \int_{\frac{\pi}{2}}^{256\frac{3\pi}{2}}\sin(y)y^{-2}dy \, , 
+	\\
+	\dfrac{1}{2} & \int_{256\frac{3\pi}{2}}^{\infty}\sin(y)y^{-2}dy \, .
+\end{align*}
+
+The head is calculated using that $ \sin(y) $ is increasing and $ y^{-2} $ 
+decreasing by dividing $ \left[1,\frac{\pi}{2}\right] $ into small pieces and 
+on each piece approximating the value by multiplying the two functions largest 
+values for the upper bound and smallest value for the lower bound.
+
+For the main part I use the same idea and the fact that $ \sin(y) $ alternates 
+between increasing and decreasing on the intervals $ \left[ 
+\frac{(1+2k)\pi}{2},\frac{(1+2(k+1))\pi}{2} \right] $. I also perform another 
+change of variables, $ y=\pi dz $ two remove several occurrences of $ \pi $ in 
+the integrand and the interval boundaries.  
+
+Finally, the tail is approximated by simply forgetting the $ \sin $ factor of 
+the integrand and using
+\begin{align*}
+	\dfrac{1}{2\pi}\int_{256\frac{3}{2}}^{\infty}z^{-2}dz & = 
+	\dfrac{1}{2\pi}\left[ -z^{-1} \right]_{256\frac{3}{2}}^{\infty} \\
+	& = \dfrac{1}{2\pi\cdot 3\cdot 128} \, .
+\end{align*}
+
+Regarding the sharpness of the achieved bounds, just as my solution of exercise 
+5a it depends on the standard implementations of \texttt{sin} and 
+\texttt{pow} respecting the roundings and there is inherent non-sharpness in 
+the way I handle the value of $ \pi $.
+
+\appendix
+
+%    Bibliographies can be prepared with BibTeX using amsplain,
+%    amsalpha, or (for "historical" overviews) natbib style.
+
+%\begin{bibdiv}
+%	\begin{biblist}
+%	
+%	\end{biblist}
+%\end{bibdiv}
+
+
+\end{document}

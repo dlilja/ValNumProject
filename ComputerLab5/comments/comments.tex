@@ -1,0 +1,38 @@
+\documentclass[a4paper, 11 pt]{amsart}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{aliascnt}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\lhead{Dan Lilja}
+\rhead{Validated Numerics \\
+	Computer lab 5}
+
+\begin{document}
+
+\thispagestyle{fancy}
+
+\hfill
+
+\section*{Further comments}
+
+The period function is computed by starting at a point $(x,0)$ and integrating
+to a point $(0,y)$. The period is then given by 4 times this integration time.
+
+For doubles, a Taylor method is used for integrating and a Newton method is used
+for finding the correct integration time $T$ giving $x(T) = 0$ using an initial
+guess provided by the user.
+
+For intervals, a rigorous Taylor method is used for integrating and a Krawczyk
+method is used for finding an interval enclosure of the time $T$ such that
+$x(T)=0$.
+
+In both cases, a user provided tolerance is used to determine how close the
+solution time needs to be the actual time.
+
+\end{document}

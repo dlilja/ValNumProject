@@ -1,0 +1,3 @@
+The interval library is contained in the interval.hpp and interval.cpp files in
+the ../Libraries/C++ folder. The file test.cpp is a simple test program for the
+interval functions.
